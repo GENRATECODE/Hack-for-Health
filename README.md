@@ -1,3 +1,3 @@
 # Hack-for-Health
 
-<h1>Project Title<: -</h1> <h2 > Elarier Dieases Detection</h2> 
+<h1>Project Title: - </h1> <p > Elarier Dieases Detection</p> 
