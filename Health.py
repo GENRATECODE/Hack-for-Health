@@ -42,11 +42,16 @@ class model_input(BaseModel):
     slope:int
     ca:int
     thal:int
-# def output(n,for_use):
-#     if n==1:
-#         return "Yes, You have Heart Problem"
-#     else:
-#         return "No, You have not Heart {}".format(for_use)
+# for parkison 
+
+# for Diabeties 
+
+
+def output(n,for_use):
+    if n==1:
+        return "Yes, You have Heart Problem"
+    else:
+        return "No, You have not Heart {}".format(for_use)
 def result_heart(age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal):
     colmn =["age","sex","cp","trestbps","chol","fbs","restecg","thalach","exang","oldpeak","slope","ca","thal"]
     data=[[age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal]]
