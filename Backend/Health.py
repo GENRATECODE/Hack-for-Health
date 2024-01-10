@@ -73,7 +73,6 @@ class model_input(BaseModel):
     Insulin :int
     BMI:float
     DiabetesPedigreeFunction :float
-    Age:int
 
 def output(n,for_use):
     if n==1:
@@ -95,7 +94,7 @@ def result_heart(age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slop
 
 def result_Diabeties(Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age):
     colmn =['Pregnancies','Glucose','BloodPressure','SkinThickness','Insulin','BMI','DiabetesPedigreeFunction','Age']
-    data=[Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age]
+    data=[[Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age]]
     print(data)
     x=pd.DataFrame(data=data,columns=colmn)
     print(x)
@@ -107,7 +106,7 @@ def result_Diabeties(Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI
 #   Parkison function 
 def result_parkinson(MDVP_Fo_Hz,MDVP_Fhi_Hz,MDVP_Flo_Hz,MDVP_jitter_percentage,MDVP_Jitter_Abs,MDVP_RAP,MDVP_PPQ,Jitter_DDP,MDVP_Shimmer,MDVP_Shimmer_dB,Shimmer_APQ3,Shimmer_APQ5,MDVP_APQ,Shimmer_DDA,NHR,HNR,RPDE,DFA,spread1,spread2,D2,PPE):
     column =['MDVP_Fo_Hz','MDVP_Fhi_Hz','MDVP_Flo_Hz','MDVP_jitter_percentage','MDVP_Jitter_Abs','MDVP_RAP','MDVP_PPQ','Jitter_DDP','MDVP_Shimmer','MDVP_Shimmer_dB','Shimmer_APQ3','Shimmer_APQ5','MDVP_APQ','Shimmer_DDA','NHR','HNR','RPDE','DFA','spread1','spread2','D2','PPE']
-    data=[MDVP_Fo_Hz,MDVP_Fhi_Hz,MDVP_Flo_Hz,MDVP_jitter_percentage,MDVP_Jitter_Abs,MDVP_RAP,MDVP_PPQ,Jitter_DDP,MDVP_Shimmer,MDVP_Shimmer_dB,Shimmer_APQ3,Shimmer_APQ5,MDVP_APQ,Shimmer_DDA,NHR,HNR,RPDE,DFA,spread1,spread2,D2,PPE]
+    data=[[MDVP_Fo_Hz,MDVP_Fhi_Hz,MDVP_Flo_Hz,MDVP_jitter_percentage,MDVP_Jitter_Abs,MDVP_RAP,MDVP_PPQ,Jitter_DDP,MDVP_Shimmer,MDVP_Shimmer_dB,Shimmer_APQ3,Shimmer_APQ5,MDVP_APQ,Shimmer_DDA,NHR,HNR,RPDE,DFA,spread1,spread2,D2,PPE]]
     print(data)
     x=pd.DataFrame(data=data,columns=column)
     print(x)
@@ -173,7 +172,7 @@ async def prediction_diabeties(input_parameters:model_input):
     Insulin=input_parameters.Insulin                     
     BMI=input_parameters.BMI                         
     DiabetesPedigreeFunction=input_parameters.DiabetesPedigreeFunction    
-    Age=input_parameters.Age   
+    Age=input_parameters.age   
     return result_Diabeties(Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age)                      
 
 # configuring the server host and port
