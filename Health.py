@@ -8,7 +8,6 @@ import json
 import pandas as pd
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-import joblib
 # Initializing the fast API server
 app = FastAPI()
 
@@ -45,13 +44,20 @@ class model_input(BaseModel):
 # for parkison 
 
 # for Diabeties 
-
+    Pregnancies :int
+    Glucose  :int       
+    BloodPressure :int
+    SkinThickness :int
+    Insulin :int
+    BMI:float
+    DiabetesPedigreeFunction :float
+    Age:int
 
 def output(n,for_use):
     if n==1:
-        return "Yes, You have Heart Problem"
+        return "Positive,{f}".format(f=for_use)
     else:
-        return "No, You have not Heart {}".format(for_use)
+        return "Negative, {f}".format(f=for_use)
 def result_heart(age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal):
     colmn =["age","sex","cp","trestbps","chol","fbs","restecg","thalach","exang","oldpeak","slope","ca","thal"]
     data=[[age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal]]
@@ -61,7 +67,24 @@ def result_heart(age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slop
     filename="models/HeartDIease.pickle"
     # loaded_model=pi.load(open(filename,'rb'))
     # return json.dump(output_label(loaded_model.predict(),"heart"))
-    return json.dumps("work well done")
+    return json.dumps("check_1 ")
+
+#  function  Diabeteis 
+
+def result_Diabeties(Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age):
+    colmn =['Pregnancies','Glucose','BloodPressure','SkinThickness','Insulin','BMI','DiabetesPedigreeFunction','Age']
+    data=[Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age]
+    print(data)
+    x=pd.DataFrame(data=data,columns=colmn)
+    print(x)
+    filename="models/Diabetes.pickle"
+    # loaded_model=pi.load(open(filename,'rb'))
+    # return json.dump(output_label(loaded_model.predict(),"Diabetes"))
+    return json.dumps("check_2")
+
+#   Parkison function 
+def result_parkinson():
+    pass
 # Setting up the home route
 @app.get("/")
 def read_root():
@@ -88,9 +111,18 @@ async def prediction_heart(input_parameters: model_input):
 # @app.post("/parkinson")
 # async def prediction_parkinson(input_parameters:model_input):
 
-# @app.post("/Diabeties")
+@app.post("/Diabeties")
+async def prediction_diabeties(input_parameters:model_input):
+    Pregnancies=input_parameters.Pregnancies               
+    Glucose=input_parameters.Glucose                     
+    BloodPressure=input_parameters.BloodPressure               
+    SkinThickness=input_parameters.SkinThickness               
+    Insulin=input_parameters.Insulin                     
+    BMI=input_parameters.BMI                         
+    DiabetesPedigreeFunction=input_parameters.DiabetesPedigreeFunction    
+    Age=input_parameters.Age   
+    return result_Diabeties(Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age)                      
 
 # configuring the server host and port
-# Configuring the server host and port
 if __name__=="__main__":
     uvicorn.run(app,"0.0.0.0","10000")
