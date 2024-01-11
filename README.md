@@ -29,8 +29,8 @@ git clone https://github.com/GENRATECODE/Hack-for-Health.git
 vinary add 
 
 <h2>Backend</h2>
-Need Python version Python 3.11.4
-and additional requirements 
+Need Python version Python 3.11.4 and additional requirements 
+
 Install the necessary Library for Backend  Python 
 
 ```sh
