@@ -29,14 +29,15 @@ git clone https://github.com/GENRATECODE/Hack-for-Health.git
 vinary add 
 
 <h2>Backend</h2>
-Install necessary Libarary for Backend  Python 
-
+Need Python version Python 3.11.4
+and additional requirements 
+Install the necessary Library for Backend  Python 
 
 ```sh
 pip3 install -r requirements.txt
 ```
 
-# How to runn this project 
+# How to run this project 
 
 * run fronted and backend code
 
@@ -53,6 +54,6 @@ uvicorn Backend.Health:app --host 0.0.0.0 --port 80
 local host link generate through FastAPI and `past on where Fronted Post call` 
 such as `http://0.0.0.0:80`
 
-# Output : - 
+# Output: - 
 
 vinary add 
