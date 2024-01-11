@@ -1,4 +1,4 @@
-import pickle
+import pickle as pi
 from sklearn.preprocessing import FunctionTransformer
 import re
 import string
@@ -29,91 +29,110 @@ app.add_middleware(
 )
 class model_input(BaseModel):
     # heart Diease 
-    age:int
-    sex: int
-    cp: int
-    trestbps: int
-    chol:int
-    fbs:int
-    restecg:int
-    thalach:int
-    exang: int
-    oldpeak: float
-    slope:int
-    ca:int
-    thal:int
+    age:int|None=None
+    sex: int|None=None
+    cp: int|None=None
+    trestbps: int|None=None
+    chol:int|None=None
+    fbs:int|None=None
+    restecg:int|None=None
+    thalach:int|None=None
+    exang: int|None=None
+    oldpeak: float|None=None
+    slope:int|None=None
+    ca:int|None=None
+    thal:int|None=None
     # for parkison 
-    MDVP_Fo_Hz:float
-    MDVP_Fhi_Hz:float
-    MDVP_Flo_Hz:float
-    MDVP_jitter_percentage:float
-    MDVP_Jitter_Abs:float
-    MDVP_RAP:float
-    MDVP_PPQ:float
-    Jitter_DDP:float
-    MDVP_Shimmer:float
-    MDVP_Shimmer_dB:float
-    Shimmer_APQ3:float
-    Shimmer_APQ5:float
-    MDVP_APQ:float
-    Shimmer_DDA:float
-    NHR:float
-    HNR:float
-    RPDE:float
-    DFA:float
-    spread1:float
-    spread2:float
-    D2:float
-    PPE:float
+    MDVP_Fo_Hz:float|None=None
+    MDVP_Fhi_Hz:float|None=None
+    MDVP_Flo_Hz:float|None=None
+    MDVP_jitter_percentage:float|None=None
+    MDVP_Jitter_Abs:float|None=None
+    MDVP_RAP:float|None=None
+    MDVP_PPQ:float|None=None
+    Jitter_DDP:float|None=None
+    MDVP_Shimmer:float|None=None
+    MDVP_Shimmer_dB:float|None=None
+    Shimmer_APQ3:float|None=None
+    Shimmer_APQ5:float|None=None
+    MDVP_APQ:float|None=None
+    Shimmer_DDA:float|None=None
+    NHR:float|None=None
+    HNR:float|None=None
+    RPDE:float|None=None
+    DFA:float|None=None
+    spread1:float|None=None
+    spread2:float|None=None
+    D2:float|None=None
+    PPE:float|None=None
     # for Diabeties 
-    Pregnancies :int
-    Glucose  :int       
-    BloodPressure :int
-    SkinThickness :int
-    Insulin :int
-    BMI:float
-    DiabetesPedigreeFunction :float
+    preg :int|None=None
+    plas  :int|None=None       
+    pres :int|None=None
+    skin :int|None=None
+    insu :int|None=None
+    bmi:float|None=None
+    pedi :float|None=None
+    # height:float|None=None
+    # weight:float|None=None
 
+# Output label return 
 def output(n,for_use):
     if n==1:
         return "Positive,{f}".format(f=for_use)
     else:
         return "Negative, {f}".format(f=for_use)
+
 def result_heart(age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal):
     colmn =["age","sex","cp","trestbps","chol","fbs","restecg","thalach","exang","oldpeak","slope","ca","thal"]
     data=[[age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal]]
-    print(data)
-    x=pd.DataFrame(data=data,columns=colmn)
-    print(x)
-    filename="models/HeartDIease.pickle"
-    # loaded_model=pi.load(open(filename,'rb'))
-    # return json.dump(output_label(loaded_model.predict(),"heart"))
-    return json.dumps("check_1 ")
+    if len(data[0])%13==0 and  not(any(item is  None for item in data[0])):
+        print(data)
+        x=pd.DataFrame(data=data,columns=colmn)
+        print(x)
+        filename="models/HeartDIease.pickle"
+        # loaded_model=pi.load(open(filename,'rb'))
+        # result=output(loaded_model.predict(),"heart")
+        result="check_1"
+        return json.dumps(result)
+    else:
+        return json.dumps("Not Proper Value")
 
 #  function  Diabeteis 
 
 def result_Diabeties(Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age):
     colmn =['Pregnancies','Glucose','BloodPressure','SkinThickness','Insulin','BMI','DiabetesPedigreeFunction','Age']
     data=[[Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age]]
-    print(data)
-    x=pd.DataFrame(data=data,columns=colmn)
-    print(x)
-    filename="models/Diabetes.pickle"
-    # loaded_model=pi.load(open(filename,'rb'))
-    # return json.dump(output_label(loaded_model.predict(),"Diabetes"))
-    return json.dumps("check_2")
+    if len(data[0])%8==0 and not(any(item is  None for item in data[0])):
+        print(data)
+        x=pd.DataFrame(data=data,columns=colmn)
+        print(x)
+        filename="models/Diabetes.pickle"
+        # loaded_model=pi.load(open(filename,'rb'))
+        # # return json.dump(output_label(loaded_model.predict(),"Diabetes"))
+        # result=output(loaded_model.predict(),"Diabetes")
+        result="check_2"
+        return json.dumps(result)
+    else:
+        value="Not Proper Value"
+        return json.dumps(value)
 
 #   Parkison function 
 def result_parkinson(MDVP_Fo_Hz,MDVP_Fhi_Hz,MDVP_Flo_Hz,MDVP_jitter_percentage,MDVP_Jitter_Abs,MDVP_RAP,MDVP_PPQ,Jitter_DDP,MDVP_Shimmer,MDVP_Shimmer_dB,Shimmer_APQ3,Shimmer_APQ5,MDVP_APQ,Shimmer_DDA,NHR,HNR,RPDE,DFA,spread1,spread2,D2,PPE):
     column =['MDVP_Fo_Hz','MDVP_Fhi_Hz','MDVP_Flo_Hz','MDVP_jitter_percentage','MDVP_Jitter_Abs','MDVP_RAP','MDVP_PPQ','Jitter_DDP','MDVP_Shimmer','MDVP_Shimmer_dB','Shimmer_APQ3','Shimmer_APQ5','MDVP_APQ','Shimmer_DDA','NHR','HNR','RPDE','DFA','spread1','spread2','D2','PPE']
     data=[[MDVP_Fo_Hz,MDVP_Fhi_Hz,MDVP_Flo_Hz,MDVP_jitter_percentage,MDVP_Jitter_Abs,MDVP_RAP,MDVP_PPQ,Jitter_DDP,MDVP_Shimmer,MDVP_Shimmer_dB,Shimmer_APQ3,Shimmer_APQ5,MDVP_APQ,Shimmer_DDA,NHR,HNR,RPDE,DFA,spread1,spread2,D2,PPE]]
-    print(data)
-    x=pd.DataFrame(data=data,columns=column)
-    print(x)
-    filename="models/Parkison.pickle"
-    # loaded_model=pi.load(open(filename,'rb'))
-    # return json.dump(output_label(loaded_model.predict(),"Parkison "))
-    return json.dumps("check_3")
+    print(any(item is None for item in data[0]))
+    if len(data[0])%22==0 and any(item is not None for item in data[0]):
+        print(data)
+        x=pd.DataFrame(data=data,columns=column)
+        print(x)
+        filename="models/Parkison.pickle"
+        # loaded_model=pi.load(open(filename,'rb'))
+        # result=output(loaded_model.predict(),"Parkinson")
+        result="check_3"
+        return json.dumps("check_3")
+    else:
+        return json.dumps("Not Proper Value")
 # Setting up the home route
 @app.get("/")
 def read_root():
@@ -165,13 +184,13 @@ async def prediction_parkinson(input_parameters:model_input):
 
 @app.post("/Diabeties")
 async def prediction_diabeties(input_parameters:model_input):
-    Pregnancies=input_parameters.Pregnancies               
-    Glucose=input_parameters.Glucose                     
-    BloodPressure=input_parameters.BloodPressure               
-    SkinThickness=input_parameters.SkinThickness               
-    Insulin=input_parameters.Insulin                     
-    BMI=input_parameters.BMI                         
-    DiabetesPedigreeFunction=input_parameters.DiabetesPedigreeFunction    
+    Pregnancies=input_parameters.preg               
+    Glucose=input_parameters.plas                     
+    BloodPressure=input_parameters.pres               
+    SkinThickness=input_parameters.skin               
+    Insulin=input_parameters.insu                     
+    BMI=input_parameters.bmi                         
+    DiabetesPedigreeFunction=input_parameters.pedi    
     Age=input_parameters.age   
     return result_Diabeties(Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age)                      
 
