@@ -110,8 +110,8 @@ def result_Diabeties(Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI
         filename="models/Diabetes.pickle"
         # loaded_model=pi.load(open(filename,'rb'))
         # # return json.dump(output_label(loaded_model.predict(),"Diabetes"))
-        # result=output(loaded_model.predict(),"Diabetes")
-        result="check_2"
+        result=output(loaded_model.predict(),"Diabetes")
+        # result="check_2"
         return json.dumps(result)
     else:
         value="Not Proper Value"
