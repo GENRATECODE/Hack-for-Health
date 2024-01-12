@@ -1,6 +1,6 @@
 # Hack-for-Health
 
-<h1>Project Title: - ? vinary add here </h1>  
+<h1>Project Title: - Quick Health Analyser </h1>  
 <h2>Problem Statement </h2> </br>
 
 Early illness identification is an important worldwide public health goal. Using machine learning (ML) approaches to assess consumer diagnostic data has emerged as a game-changing approach to early-stage illness identification. This paradigm focuses on three specific diseases: heart disease, diabetes, and Parkinson's disease.
