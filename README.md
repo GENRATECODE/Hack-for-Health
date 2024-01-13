@@ -1,59 +1,70 @@
-# Hack-for-Health
+# Getting Started with Create React App
 
-<h1>Project Title: - Quick Health Analyser </h1>  
-<h2>Problem Statement </h2> </br>
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Early illness identification is an important worldwide public health goal. Using machine learning (ML) approaches to assess consumer diagnostic data has emerged as a game-changing approach to early-stage illness identification. This paradigm focuses on three specific diseases: heart disease, diabetes, and Parkinson's disease.
+## Available Scripts
 
-Machine learning algorithms, particularly classification models, play an important role in this process. These models are trained on various datasets containing diagnostic information from people. The input characteristics might comprise a variety of health indicators, genetic markers, lifestyle variables, and other pertinent data. Machine learning algorithms learn to discover patterns and develop connections with the early stages of heart disease, diabetes, and Parkinson's disease by analyzing these complex datasets.
-The importance of early detection cannot be emphasized. It allows for faster intervention and tailored treatment programs, which ultimately improves patient outcomes and reduces the strain on healthcare systems. The use of machine learning in illness detection also helps to construct prediction models that improve risk assessment and guide prevention methods.
+In the project directory, you can run:
 
-Furthermore, implementing such ML-based diagnostic systems requires coordination among healthcare specialists, data scientists, and technology experts. Ethical issues, data privacy, and model interpretability become critical when deploying these technologies in real-world healthcare settings.
+### `npm start`
 
-`In short, using machine learning into early illness detection efforts represents a paradigm change in healthcare. We want to transform diagnostic capabilities, empower healthcare practitioners, and, eventually, improve the quality of life for people throughout the world by using the power of powerful algorithms.`
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-we are make Detect only three.
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-1. `Heart Disease `
-2. `Diabetes Disease`
-3. `Parkinson's Disease`
+### `npm test`
 
-# Setup
-* Clone the Repo
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-```sh 
-git clone https://github.com/GENRATECODE/Hack-for-Health.git
-```
-<h2>Fronted</h2>
+### `npm run build`
 
-vinary add 
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-<h2>Backend</h2>
-Need Python version Python 3.11.4 and additional requirements 
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-Install the necessary Library for Backend  Python 
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-```sh
-pip3 install -r requirements.txt
-```
+### `npm run eject`
 
-# How to run this project 
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-* run fronted and backend code
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-<h2>Fronted</h2>
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-vinary add 
-<h2>Backend</h2>
-Run Command FastAPI  in terminal 
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-```sh 
-uvicorn Backend.Health:app --host 0.0.0.0 --port 80
-```
+## Learn More
 
-local host link generate through FastAPI and `past on where Fronted Post call` 
-such as `http://0.0.0.0:80`
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-# Output: - 
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-vinary add 
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
