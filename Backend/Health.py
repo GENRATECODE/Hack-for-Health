@@ -8,6 +8,11 @@ import json
 import pandas as pd
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+def warn(*args, **kwargs):
+    pass
+import warnings
+warnings.warn = warn
+warnings.filterwarnings('ignore')
 # Initializing the fast API server
 app = FastAPI()
 
@@ -79,9 +84,9 @@ class model_input(BaseModel):
 # Output label return 
 def output(n,for_use):
     if n==1:
-        return "Positive,{f}".format(f=for_use)
+        return "Positive {f}".format(f=for_use)
     else:
-        return "Negative, {f}".format(f=for_use)
+        return "Negative {f}".format(f=for_use)
 
 def result_heart(age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal):
     colmn =["age","sex","cp","trestbps","chol","fbs","restecg","thalach","exang","oldpeak","slope","ca","thal"]
@@ -90,10 +95,10 @@ def result_heart(age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slop
         print(data)
         x=pd.DataFrame(data=data,columns=colmn)
         print(x)
-        filename="models/HeartDIease.pickle"
-        # loaded_model=pi.load(open(filename,'rb'))
-        # result=output(loaded_model.predict(),"heart")
-        result="check_1"
+        filename="Backend/models/HeartDIease.pickle"
+        loaded_model=pi.load(open(filename,'rb'))
+        result=output(loaded_model.predict(x),"heart")
+        # result="check_1"
         return json.dumps(result)
     else:
         return json.dumps("Not Proper Value")
@@ -107,10 +112,9 @@ def result_Diabeties(Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI
         print(data)
         x=pd.DataFrame(data=data,columns=colmn)
         print(x)
-        filename="models/Diabetes.pickle"
-        # loaded_model=pi.load(open(filename,'rb'))
-        # # return json.dump(output_label(loaded_model.predict(),"Diabetes"))
-        result=output(loaded_model.predict(),"Diabetes")
+        filename="Backend/models/Diabetes.pickle"
+        loaded_model=pi.load(open(filename,'rb'))
+        result=output(loaded_model.predict(x),"Diabetes")
         # result="check_2"
         return json.dumps(result)
     else:
@@ -126,11 +130,11 @@ def result_parkinson(MDVP_Fo_Hz,MDVP_Fhi_Hz,MDVP_Flo_Hz,MDVP_jitter_percentage,M
         print(data)
         x=pd.DataFrame(data=data,columns=column)
         print(x)
-        filename="models/Parkison.pickle"
-        # loaded_model=pi.load(open(filename,'rb'))
-        # result=output(loaded_model.predict(),"Parkinson")
-        result="check_3"
-        return json.dumps("check_3")
+        filename="Backend/models/Parkison.pickle"
+        loaded_model=pi.load(open(filename,'rb'))
+        result=output(loaded_model.predict(x),"Parkinson")   
+        # result="check_3"
+        return json.dumps(result)
     else:
         return json.dumps("Not Proper Value")
 # Setting up the home route
