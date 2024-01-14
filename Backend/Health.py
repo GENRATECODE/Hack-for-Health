@@ -1,7 +1,5 @@
 import pickle as pi
 from sklearn.preprocessing import FunctionTransformer
-import re
-import string
 import uvicorn
 from pydantic import BaseModel
 import json
