@@ -136,4 +136,5 @@ such as `http://0.0.0.0:80`
 
 # Output: - 
 
-vinary add 
+<img width="537" alt="Screenshot 2024-01-15 013022" src="https://github.com/GENRATECODE/Hack-for-Health/assets/70506939/e9dcd303-97d7-4c90-b9d7-ab19ca8c4bdf">
+
