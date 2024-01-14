@@ -24,9 +24,22 @@ we are make Detect only three.
 ```sh 
 git clone https://github.com/GENRATECODE/Hack-for-Health.git
 ```
-<h2>Fronted</h2>
+# Fronted
+## Some screanshots of ui
 
-vinary add 
+<img width="960" alt="image" src="https://github.com/GENRATECODE/Hack-for-Health/assets/70506939/499d453f-7e87-496c-b517-dc47a541a827">
+
+<img width="960" alt="image" src="https://github.com/GENRATECODE/Hack-for-Health/assets/70506939/9e559b84-3c59-4ba6-be3c-8e223fe99e0d">
+
+<img width="960" alt="image" src="https://github.com/GENRATECODE/Hack-for-Health/assets/70506939/e0d387c4-6846-4be6-96f1-794ce3b3288a">
+<img width="960" alt="image" src="https://github.com/GENRATECODE/Hack-for-Health/assets/70506939/502886f4-d517-4ff4-8849-1aaf99b0ac87">
+<img width="960" alt="image" src="https://github.com/GENRATECODE/Hack-for-Health/assets/70506939/2317ad1d-a32e-4a42-aa4b-7b36d954929f">
+<img width="960" alt="image" src="https://github.com/GENRATECODE/Hack-for-Health/assets/70506939/1b5ba601-4908-4962-a55c-f3604334db45">
+
+<img width="960" alt="image" src="https://github.com/GENRATECODE/Hack-for-Health/assets/70506939/23681627-dbaf-4bae-b6a8-3f2331d1c5ac">
+<img width="960" alt="image" src="https://github.com/GENRATECODE/Hack-for-Health/assets/70506939/4be1bd0c-8171-449b-ad9a-df0b5ba9fff1">
+
+
 
 <h2>Backend</h2>
 Need Python version Python 3.11.4 and additional requirements 
