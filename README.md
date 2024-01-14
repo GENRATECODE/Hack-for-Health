@@ -25,6 +25,9 @@ we are make Detect only three.
 git clone https://github.com/GENRATECODE/Hack-for-Health.git
 ```
 # Fronted
+
+
+## Livelink of ui/ux https://quickhealthanalyser.netlify.app/
 ## Some screenshots of UI/UX
 
 <img width="960" alt="image" src="https://github.com/GENRATECODE/Hack-for-Health/assets/70506939/499d453f-7e87-496c-b517-dc47a541a827">
