@@ -25,7 +25,7 @@ we are make Detect only three.
 git clone https://github.com/GENRATECODE/Hack-for-Health.git
 ```
 # Fronted
-## Some screanshots of ui
+## Some screenshots of UI/UX
 
 <img width="960" alt="image" src="https://github.com/GENRATECODE/Hack-for-Health/assets/70506939/499d453f-7e87-496c-b517-dc47a541a827">
 
@@ -38,6 +38,7 @@ git clone https://github.com/GENRATECODE/Hack-for-Health.git
 
 <img width="960" alt="image" src="https://github.com/GENRATECODE/Hack-for-Health/assets/70506939/23681627-dbaf-4bae-b6a8-3f2331d1c5ac">
 <img width="960" alt="image" src="https://github.com/GENRATECODE/Hack-for-Health/assets/70506939/4be1bd0c-8171-449b-ad9a-df0b5ba9fff1">
+<img width="537" alt="image" src="https://github.com/GENRATECODE/Hack-for-Health/assets/70506939/1211951f-f6b9-442b-9ee2-ecd6b9bc0749">
 
 
 
@@ -55,6 +56,7 @@ pip3 install -r requirements.txt
 * run fronted and backend code
 
 <h2>Fronted</h2>
+
 
 vinary add 
 <h2>Backend</h2>
